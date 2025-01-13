@@ -1,12 +1,19 @@
 public class Fibonacci {
   public static int fib(int n) {
+    if (n < 0) {
+      throw new IllegalArgumentException("Input must be a non-negative integer.");
+    }
     
-    int temp;
-    int num = 1;
+    if (n == 0) {return 0;} 
+    if (n == 1) {return 1;}
     
-    for(int i = 0; i<n; i++){
-      temp = num;
-      num += temp;
+    int prev = 0; 
+    int curr = 1; 
+    
+    for (int i = 2; i <= n; i++) {
+      int temp = num;  
+      num += prev;
+      prev = temp;
     }
     
     return num;
